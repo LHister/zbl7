@@ -1,0 +1,598 @@
+:root
+{
+    --white-color: #fff;
+    --black-color: #000;
+    --rules-bg-color: #dfcccc; 
+    --titles-color: red;
+    --purp: #1227e796;
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    display: flex;
+    flex-direction: column;
+}
+
+@font-face 
+{
+    font-family: 'Cinzel';
+    src: url('/rec/fonts/title/static/Cinzel-ExtraBold.ttf') format('truetype');
+    font-style: normal;
+}
+
+@font-face 
+{
+    font-family: 'Rubik';
+    src: url('/rec/fonts/Rubik/static/Rubik-Regular.ttf') format('truetype');
+    font-style: normal;
+}
+
+@font-face 
+{
+    font-family: 'Kaushan Script';
+    src: url('/zbl7/rec/fonts/Kaushan_Script/KaushanScript-Regular.ttf') format('truetype');
+    font-style: normal;
+}
+
+.nav
+{
+    background-color: var(--black-color);
+    width: 100%;
+    height: 3em;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    z-index: 12;
+}
+
+.nav .nav_container
+{
+    position: relative;
+    width: 100%;
+    margin-left: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.nav .nav_container .toggle-menu{
+    background: none;
+    border: none;
+    width: 40px;
+    cursor: pointer;
+    margin:0 0 0 1.5em;
+}
+.nav .nav_container .toggle-menu span{
+    display: block;
+    background-color: var(--titles-color);
+    width: 60%;
+    height: 3px;
+    margin-bottom: 6px;
+}
+
+.nav .nav_container .nav-bord
+{
+    height: 4vh;
+    width: 0.3%;
+    background-color: var(--theme);
+    margin-right: 0.5em;
+}
+
+.nav .nav_container .logo
+{
+    color: var(--titles-color);
+    font-size: 1.7em;
+    font-family: "Kaushan Script", cursive;
+    cursor: pointer;
+}
+
+.nav .nav_container .logo:hover
+{
+    transform: scale(1.1) rotate(10deg);
+    transition: 1.5s ease;
+}
+
+.nav .nav_container .links.open
+{
+    position: absolute;
+    top: 120%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--black-color);
+    border-right: 2px solid var(--titles-color);
+    border-bottom: 2px solid var(--titles-color);
+    border-radius: 1em;
+    padding: 25% 15%;
+    width: 5%;
+}
+
+.nav .nav_container .links .link.open
+{
+    list-style: none;
+    position: absolute;
+    border-left: 2px solid var(--titles-color);
+    z-index: 16;
+}
+
+.nav .nav_container .links .link.open:hover
+{
+    border-left: 2px solid var(--white-color);
+}
+
+.nav .nav_container .links .link.open:nth-child(1)
+{
+    top: 2em;
+    left: 1.5em;
+}
+
+.nav .nav_container .links .link.open:nth-child(2)
+{
+    top: 5em;
+    left: 1.5em;
+}
+
+.nav .nav_container .links .link.open:nth-child(3)
+{
+    top: 8em;
+    left: 1.5em;
+}
+
+.nav .nav_container .links
+{
+    position: absolute;
+    right: 1em;
+    top: 12%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.nav .nav_container .links .link
+{
+    list-style-type: none;
+}
+
+.nav .nav_container .links .link .oggo{
+    margin: 0 0.3em;
+    text-decoration: none;
+    color: var(--titles-color);
+    font-family: "Kaushan Script", cursive;
+    font-size: 1.3em;
+}
+
+.nav .nav_container .links .link .oggo:hover
+{
+    color: var(--white-color);
+    transition: 0.5s ease;
+    border-bottom: 2px solid var(--white-color);
+}
+
+.scroller
+{
+    position: fixed;
+    margin-top: 3em;
+    height: 5px;
+    background-color: var(--titles-color);
+    z-index: 99;
+}
+
+.greeting
+{
+    display: none;
+}
+
+.greeting.welc{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--black-color);
+    z-index: 50;
+}
+
+.greeting .myn
+{
+    display: none;
+}
+
+.greeting .myn.welc
+{
+    display: block;
+    color: var(--titles-color);
+    font-size: 5em;
+    font-family: 'Cinzel';
+}
+
+.greeting .myg 
+{
+    display: none;
+}
+
+.greeting .myg.welc
+{
+    display: block;
+    color: var(--white-color);
+    font-size: 5em;
+    font-family: "Kaushan Script", cursive;
+    margin-left: 3em;
+}
+
+.main
+{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-image: url(/rec/images/4014.jpg);
+    margin-top: 3em;
+    position: fixed;
+    z-index: 0;
+    background-size: cover;
+    flex-direction: column;
+}
+
+.main .mti
+{
+    margin-left: 3em;
+    display: flex;
+    padding-left: 35%;
+    padding-top: 2%;
+    flex-direction: column;
+}
+
+.main .mti h1
+{
+    color: var(--titles-color);
+    font-family: "Kaushan Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 600px;
+    font-style: normal;
+}
+
+.main .mti p 
+{
+    color: var(--white-color);
+    margin-left: 3em;
+    font-family: "Rubik", sans-serif;
+    font-size: 1.3em;
+    display: flex;
+    flex-direction: column;
+}
+
+.main .mti p span
+{
+    font-family: "Cinzel", serif;
+}
+
+.main .gimg
+{
+    margin: 0 1%;
+}
+
+.main .inter
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.main .gimg img
+{
+    border-left: 0.7em solid var(--black-color);
+    border-bottom: 0.7em solid var(--black-color);
+    border-radius: 50%;
+    width: 55vh;
+}
+
+.main .disc
+{
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+}
+
+.main .disc p
+{
+    color: var(--titles-color);
+    margin-top: 5%;
+    font-family: "Cinzel", serif;
+    font-size: 1.5em;
+}
+
+.main .disc em
+{
+    color: var(--white-color);
+    margin: 5%;
+}
+
+#qote
+{
+    color: var(--black-color);
+    font-size: 1.5em;
+}
+
+.main .sbtn
+{
+    display: flex;
+    padding-left: 49%;
+}
+
+.main .arrows 
+{
+    position: relative;
+    left: 60%;
+    color: var(--titles-color);
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    margin: 1em 0; 
+    animation: moveUpDown 1s infinite alternate;
+    transform-origin: center;
+}
+
+.main .arrows i 
+{
+    position: absolute;
+}
+
+@keyframes moveUpDown 
+{
+    0% {
+      transform: translate(-50%, -50%);
+    }
+    100% {
+      transform: translate(-50%, -50%) translateY(-90%);
+    }
+}
+
+.main .sbtn button
+{
+    margin-left: 2em;
+    display: inline-block;
+    width: 8em;
+    background-color: red;
+    color: var(--white-color);
+    border: none;
+    border-bottom: 2px solid var(--white-color);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.main .sbtn button a 
+{
+    text-decoration: none;
+    color: var(--white-color);
+}
+
+.main .sbtn button:hover 
+{
+    transform: scale(1.1);
+    transition: 1s ease;
+    color: var(--black-color);
+    background-color: var(--black-color);
+    border-bottom: 0.3em solid var(--titles-color);
+}
+
+.rules 
+{
+    position: sticky;
+    top: 0;
+    border-top: 4px solid var(--black-color);
+    width: cover;
+    height: 100vh;
+    background-color: #cfbdbd;
+    margin-top: 100%;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+}
+
+.rules .ruls 
+{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    left: 0;
+    width: 50%;
+    margin-top: 6%;
+    margin-left: 5%;
+}
+
+.rules .ruls .rutit 
+{
+    color: var(--titles-color);
+    font-family: "Cinzel", serif;
+    font-size: 1.5em;
+}
+
+.rules .ruls em 
+{
+    margin-top: 2%;
+    font-style: italic;
+    font-family: serif;
+}
+
+.rules .rulogo 
+{
+    margin-top: 2%;
+    width: 30%;
+    height: 50vh;
+    border-radius: 50%;
+    border-bottom: 3px solid var(--black-color);
+    border-left: 3px solid var(--black-color);
+    margin-left: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#balc 
+{
+   font-size: 30vh !important;
+}
+
+.history
+{
+    position: sticky;
+    top: 0;
+    background-color: var(--black-color);
+    border-top: 4px solid var(--black-color);
+    width: 100%;
+    height: 95vh;
+    z-index: 8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid var(--titles-color);
+}
+
+.history .his
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.history .his .histit 
+{
+    color: var(--titles-color);
+    font-family: "Cinzel", serif;
+    font-size: 1.5em;
+    margin-top: 3%;
+}
+
+.history .his .his_expr
+{
+    display: flex;
+    flex-direction: row;
+    width: 94%;
+}
+
+.history .his .his_expr span
+{
+    padding: 10px 5px;
+    margin: 0% 2%;
+    background-color: var(--titles-color);
+    border-left: 3px solid var(--purp);
+    border-right: 3px solid var(--purp);
+}
+
+.history .his .his_expr em 
+{
+    margin-top: 2%;
+    width: 90%;
+    font-style: italic;
+    font-family: serif;
+    color: var(--white-color);
+}
+
+.history .hislogo 
+{
+    margin-top: 2%;
+    width: 40%;
+    height: 50vh;
+    border-radius: 50%;
+    border-bottom: 3px solid var(--white-color);
+    border-left: 3px solid var(--white-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#his-logo
+{
+    color: var(--white-color);
+    font-size: 15em;
+}
+
+#footer
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4%;
+    z-index: 11;
+    border-top: 2px solid var(--titles-color);
+    background-color: var(--black-color);
+    position: relative;
+}
+
+#footer em 
+{
+    color: var(--white-color);
+    position: absolute;
+    right: 6%;
+    top: 20%;
+}
+
+#footer .ft_icons
+{
+    position: absolute;
+    right: 2em;
+    top: 50%;
+}
+
+#footer .ft_border
+{
+    position: absolute;
+    right: 2.5em;
+    top: 45%;
+    padding: 0.1em 5em;
+    background-color: var(--white-color);
+}
+
+#footer .ft_icons a 
+{
+    display: inline-block;
+    color: var(--white-color);
+    font-size: 1.6em;
+    margin: 0 0.3em;
+}
+
+#footer .ft_icons a:hover
+{
+    color: var(--titles-color);
+    transform: scale(1.2);
+    transition: 1s ease;
+    border-bottom: 3px solid var(--titles-color);
+}
+
+#code
+{
+    color: var(--white-color);
+    font-size: 2em;
+}
+
+#footer .rights
+{
+    position: absolute;
+    left: 2em;
+}
+
+#footer .rights span:nth-child(1)
+{
+    color: var(--titles-color);
+    font-size: 2em;
+}
+
+#cr
+{
+    color: var(--white-color);
+    font-size: 1.3em;
+}
+
+#footer .rights span:nth-child(3)
+{
+    color: var(--white-color);
+}
